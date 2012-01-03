@@ -84,19 +84,6 @@ public class ClientConnector {
 
     }
 
-    public class Player {
-        public String Name;
-        public String FullName;
-        public boolean IsReady = false;
-
-        TileData[] playerTiles;
-
-        public Player(String fullname, TileData[] playerTiles) {
-            this.playerTiles = playerTiles;
-            FullName = fullname;
-            Name = FullName.split("/")[FullName.split("/").length - 1];
-        }
-    }
 
     public class RummyGameGameInformation {
         public boolean gameStarted;
@@ -173,9 +160,9 @@ public class ClientConnector {
                         game.PlayersInGame.add(p = new Player(arg0.getFrom(), game.takeFromResiv(14)));
                         System.out.println(p.Name + " Has Joined");
                         try {
-                            muc.sendMessage(new RummyGameGameRoomMessage(RummyGameGameRoomMessage.GameRoomMessageType.RummyPlayerTiles, game.PlayersInGame.get(game.PlayersInGame.size() - 1).playerTiles).GenerateMessage());
 
-                            if (!game.gameStarted && game.PlayersInGame.size() > 0) {
+                            muc.sendMessage(new RummyGameGameRoomMessage(RummyGameGameRoomMessage.GameRoomMessageType.PlayerTiles, game.PlayersInGame.get(game.PlayersInGame.size() - 1).playerTiles,game.PlayersInGame).GenerateMessage());
+                            if (!game.gameStarted && game.PlayersInGame.size() > 1) {
 
                                 muc.sendMessage(new RummyGameGameRoomMessage(RummyGameGameRoomMessage.GameRoomMessageType.GameStarted).GenerateMessage());
                             }
@@ -194,7 +181,7 @@ public class ClientConnector {
                                 break;
                             }
                         }
-                        if(game.PlayersInGame.size() ==0){
+                        if (game.PlayersInGame.size() == 0) {
                             game.resiv = makeTilesAndRandom();
                             game.resivIndex = 0;
                             System.out.println("  -  Cleared");

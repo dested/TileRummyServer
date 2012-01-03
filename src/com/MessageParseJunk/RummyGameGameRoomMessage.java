@@ -1,40 +1,73 @@
 package com.MessageParseJunk;
 
+import com.Server.Player;
 
 import java.util.ArrayList;
 
 public class RummyGameGameRoomMessage {
+    public String PlayerName;
+    public int SetIndex;
+    public String MoveToPlayerName;
+    public int MoveToSetIndex;
+    public ArrayList<String> PlayerNames;
+
     public enum GameRoomMessageType {
-        RummyPlayerTiles, RummyGameMove, GameStarted, GameFinish, Ping, Leave
+        PlayerTiles, AddSetToPlayer, AddTileToSet, SplitSet, MoveTile, GameStarted, GameFinish, Ping, Leave
     }
 
     public TileData[] TileData;
     public GameRoomMessageType Type;
-
     public static RummyGameGameRoomMessage Parse(String st) {
 
         RummyGameGameRoomMessage t = new RummyGameGameRoomMessage();
         String[] d = st.split("\\|");
         int de = Integer.valueOf(d[0]);
         switch (de) {
+
             case 0:
-                t.Type = GameRoomMessageType.RummyPlayerTiles;
+                t.Type = GameRoomMessageType.PlayerTiles;
                 t.TileData = parseRummyTiles(d[1]);
+                t.PlayerNames = new ArrayList<String>();
+                for (int i = 2; i < d.length; i++) {
+                    t.PlayerNames.add(d[i]);
+                }
                 break;
             case 1:
-                t.Type = GameRoomMessageType.RummyGameMove;
-                //	t.point = new SudokuPoint(Integer.valueOf(d[1]), new Point(Integer.parseInt(d[2]), Integer.parseInt(d[3])));
+                t.Type = GameRoomMessageType.AddSetToPlayer;
+                t.PlayerName = d[1];
                 break;
+
             case 2:
-                t.Type = GameRoomMessageType.GameStarted;
+                t.Type = GameRoomMessageType.AddTileToSet;
+                t.TileData = parseRummyTiles(d[1]);
+                t.PlayerName = d[2];
+                t.SetIndex = Integer.parseInt(d[3]);
                 break;
             case 3:
-                t.Type = GameRoomMessageType.GameFinish;
+                t.Type = GameRoomMessageType.SplitSet;
+                t.TileData = parseRummyTiles(d[1]);
+                t.PlayerName = d[2];
+                t.SetIndex = Integer.parseInt(d[3]);
+                t.MoveToSetIndex = Integer.parseInt(d[4]);
                 break;
             case 4:
-                t.Type = GameRoomMessageType.Leave;
+                t.Type = GameRoomMessageType.MoveTile;
+                t.TileData = parseRummyTiles(d[1]);
+                t.PlayerName = d[2];
+                t.SetIndex = Integer.parseInt(d[3]);
+                t.MoveToPlayerName = d[4];
+                t.MoveToSetIndex = Integer.parseInt(d[5]);
                 break;
             case 5:
+                t.Type = GameRoomMessageType.GameStarted;
+                break;
+            case 6:
+                t.Type = GameRoomMessageType.GameFinish;
+                break;
+            case 7:
+                t.Type = GameRoomMessageType.Leave;
+                break;
+            case 8:
                 t.Type = GameRoomMessageType.Ping;
                 break;
         }
@@ -46,20 +79,37 @@ public class RummyGameGameRoomMessage {
     public String GenerateMessage() {
         String d = "";
         switch (Type) {
-            case RummyPlayerTiles:
+
+            case PlayerTiles:
                 d = "0|" + makeRummyTiles(TileData);
+                for (String PlayerName1 : PlayerNames) {
+                    d += "|" + PlayerName1;
+                }
+                break;
+            case AddSetToPlayer:
+                d = String.format("1|%s",  PlayerName);
+                break;
+            case AddTileToSet:
+                d = String.format("2|%s|%s|%d", makeRummyTiles(TileData), PlayerName, SetIndex);
+                break;
+            case SplitSet:
+
+                d = String.format("3|%s|%s|%d|%d", makeRummyTiles(TileData), PlayerName, SetIndex, MoveToSetIndex);
+                break;
+            case MoveTile:
+                d = String.format("4|%s|%s|%d|%s|%d", makeRummyTiles(TileData), PlayerName, SetIndex, MoveToPlayerName, MoveToSetIndex);
                 break;
             case GameStarted:
-                d = "2|";
+                d = "5|";
                 break;
             case GameFinish:
-                d = "3|";
+                d = "6|";
                 break;
             case Leave:
-                d = "4|";
+                d = "7|";
                 break;
             case Ping:
-                d = "5|";
+                d = "9|";
                 break;
 
         }
@@ -84,7 +134,7 @@ public class RummyGameGameRoomMessage {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < tiles.length; i++) {
-            sb.append(tiles[i].Number +"-" + tiles[i].Color + ".");
+            sb.append(tiles[i].Number + "-" + tiles[i].Color + ".");
         }
 
         return sb.toString();
@@ -98,6 +148,51 @@ public class RummyGameGameRoomMessage {
         Type = t;
         TileData = p;
     }
+
+    public RummyGameGameRoomMessage(GameRoomMessageType t, TileData[] p, String playerName) {
+        Type = t;
+        TileData = p;
+        PlayerName = playerName;
+    }
+
+    public RummyGameGameRoomMessage(GameRoomMessageType t, TileData[] p, String playerName, int setIndex) {
+        Type = t;
+        TileData = p;
+
+        PlayerName = playerName;
+        SetIndex = setIndex;
+    }    public RummyGameGameRoomMessage(GameRoomMessageType t, TileData[] p, String playerName, int setIndex, int setIndex2) {
+        Type = t;
+        TileData = p;
+
+        PlayerName = playerName;
+        SetIndex = setIndex;
+        MoveToSetIndex=setIndex2;
+
+    }
+
+    public RummyGameGameRoomMessage(GameRoomMessageType t, TileData[] p, String playerName, int setIndex, String playerName2, int setIndex2) {
+        Type = t;
+        TileData = p;
+
+        PlayerName = playerName;
+        SetIndex = setIndex;
+        MoveToPlayerName = playerName2;
+        MoveToSetIndex = setIndex2;
+    }
+
+    public RummyGameGameRoomMessage(GameRoomMessageType t, TileData[] p, ArrayList<Player> playersInGame) {
+        Type = t;
+        TileData = p;
+        ArrayList<String> names = new ArrayList<String>();
+        for (Player pl : playersInGame) {
+            names.add(pl.Name);
+        }
+        PlayerNames = names;
+
+
+    }
+
 
     private RummyGameGameRoomMessage() {
     }
