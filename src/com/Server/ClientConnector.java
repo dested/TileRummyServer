@@ -90,6 +90,12 @@ public class ClientConnector {
         public ArrayList<Player> PlayersInGame = new ArrayList<Player>();
         public TileData[] resiv;
         int resivIndex = 0;
+        public int NumOfBots;
+
+        public RummyGameGameInformation(int i) {
+            NumOfBots = i;
+        }
+
 
         public TileData[] takeFromResiv(int i) {
             int d = 0;
@@ -105,7 +111,7 @@ public class ClientConnector {
 
     public void DoRummyGameGameRoom(final int gameRoomIndex) throws Exception {
 
-        final RummyGameGameInformation game = new RummyGameGameInformation();
+        final RummyGameGameInformation game = new RummyGameGameInformation(3);
         System.out.println("RummyGame Game Room" + gameRoomIndex + " Started ");
         game.resiv = makeTilesAndRandom();
 
@@ -161,13 +167,20 @@ public class ClientConnector {
                         System.out.println(p.Name + " Has Joined");
                         try {
 
-                            muc.sendMessage(new RummyGameGameRoomMessage(RummyGameGameRoomMessage.GameRoomMessageType.PlayerTiles, game.PlayersInGame.get(game.PlayersInGame.size() - 1).playerTiles,game.PlayersInGame).GenerateMessage());
-                            if (!game.gameStarted && game.PlayersInGame.size() > 1) {
+                            muc.sendMessage(new RummyGameGameRoomMessage(RummyGameGameRoomMessage.GameRoomMessageType.PlayerTiles, game.PlayersInGame.get(game.PlayersInGame.size() - 1).playerTiles).GenerateMessage());
+                            if (!game.gameStarted && game.PlayersInGame.size() + game.NumOfBots > 3
+                                    ) {
 
-                                muc.sendMessage(new RummyGameGameRoomMessage(RummyGameGameRoomMessage.GameRoomMessageType.GameStarted).GenerateMessage());
+                                for (int c = 0; c < game.NumOfBots; c++) {
+                                    game.PlayersInGame.add(p = new Player(randomName(), game.takeFromResiv(14)));
+                                }
+                                muc.sendMessage(new RummyGameGameRoomMessage(RummyGameGameRoomMessage.GameRoomMessageType.GameStarted, game.PlayersInGame).GenerateMessage());
                             }
 
                         } catch (XMPPException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        } catch (Exception e) {
                             // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
@@ -192,6 +205,8 @@ public class ClientConnector {
                         break;
                 }
             }
+
+
         });
 
         muc.addMessageListener(new PacketListener() {
@@ -208,6 +223,7 @@ public class ClientConnector {
 
                     case GameStarted:
                         break;
+
                     case GameFinish:
                         game.gameStarted = false;
 
@@ -217,6 +233,30 @@ public class ClientConnector {
                     case Leave:
                         break;
 
+                    case PlayerTiles:
+                        break;
+                    case AddSetToPlayer:
+                        break;
+                    case AddTileToSet:
+                        break;
+                    case SplitSet:
+                        break;
+                    case MoveTile:
+                        break;
+                    case AddTileToPlayer:
+                        break;
+                    case Ping:
+                        break;
+                    case GiveMeTile:
+
+                        try {
+                            muc.sendMessage(new RummyGameGameRoomMessage(RummyGameGameRoomMessage.GameRoomMessageType.AddTileToPlayer,
+                                    game.takeFromResiv(1), d.PlayerName).GenerateMessage());
+                        } catch (XMPPException e) {
+                            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                        }
+
+                        break;
                 }
 
             }
@@ -224,16 +264,23 @@ public class ClientConnector {
         System.out.println("RummyGame Game Room " + gameRoomIndex + " Done ");
     }
 
+    Random r = new Random();
+    String[] fakeNames = new String[]{"Joe", "Steve", "Chris", "Dave", "Nick", "Mike"};
+
+    private String randomName() {
+        return fakeNames[r.nextInt(fakeNames.length)];
+    }
+
     private TileData[] makeTilesAndRandom() {
         ArrayList<TileData> tiles = new ArrayList<TileData>();
-        Random r = new Random();
 
-        for (int i = 0; i < 13; i++) {
-            for (int j = 0; j < 4; j++) {
-                tiles.add(new TileData(i, j));
+        for (int c = 0; c < 2; c++) {
+            for (int i = 0; i < 13; i++) {
+                for (int j = 0; j < 4; j++) {
+                    tiles.add(new TileData(i+1, j));
+                }
             }
         }
-
         TileData[] td = new TileData[tiles.size()];
         int fc = 0;
         while (tiles.size() > 0) {
