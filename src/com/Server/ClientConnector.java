@@ -194,7 +194,8 @@ public class ClientConnector {
                                 break;
                             }
                         }
-                        if (game.PlayersInGame.size() == 0) {
+                        if (game.PlayersInGame.size() -game.NumOfBots== 0) {
+                            game.PlayersInGame.clear();
                             game.resiv = makeTilesAndRandom();
                             game.resivIndex = 0;
                             System.out.println("  -  Cleared");

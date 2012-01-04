@@ -43,6 +43,7 @@ public class RummyGameGameRoomMessage {
                 t.TileData = parseRummyTiles(d[1]);
                 t.PlayerName = d[2];
                 t.SetIndex = Integer.parseInt(d[3]);
+                t.MoveToSetIndex = Integer.parseInt(d[4]);
                 break;
             case 3:
                 t.Type = GameRoomMessageType.SplitSet;
@@ -103,7 +104,7 @@ public class RummyGameGameRoomMessage {
                 d = String.format("1|%s", PlayerName);
                 break;
             case AddTileToSet:
-                d = String.format("2|%s|%s|%d", makeRummyTiles(TileData), PlayerName, SetIndex);
+                d = String.format("2|%s|%s|%d|%d", makeRummyTiles(TileData), PlayerName, SetIndex,MoveToSetIndex);
                 break;
             case SplitSet:
 

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8dd2328-6ba5-4498-987e-3fa63f4dd850" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/MessageParseJunk/RummyGameGameRoomMessage.java" afterPath="$PROJECT_DIR$/src/com/MessageParseJunk/RummyGameGameRoomMessage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/Server/ClientConnector.java" afterPath="$PROJECT_DIR$/src/com/Server/ClientConnector.java" />
     </list>
@@ -49,7 +48,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/Server/ClientConnector.java" line="181" class="com.Server.ClientConnector$5" package="com.Server">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/Server/ClientConnector.java" line="181" class="com.Server.ClientConnector$10" package="com.Server">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -62,7 +61,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/com/Server/ClientConnector.java" line="184" class="com.Server.ClientConnector$5" package="com.Server">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/Server/ClientConnector.java" line="184" class="com.Server.ClientConnector$10" package="com.Server">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -129,15 +128,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientConnector.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ClientConnector.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Server/ClientConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="60" selection-start="6324" selection-end="6324" vertical-scroll-proportion="0.8867925">
+            <state line="71" column="85" selection-start="2324" selection-end="2324" vertical-scroll-proportion="-7.32">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2717#2725#0" expanded="true" />
-                <element signature="e#9310#9320#0" expanded="true" />
-                <element signature="e#9934#9942#0" expanded="true" />
+                <element signature="e#9381#9391#0" expanded="true" />
+                <element signature="e#10005#10013#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -152,13 +151,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RummyGameGameRoomMessage.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="RummyGameGameRoomMessage.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/MessageParseJunk/RummyGameGameRoomMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="73" selection-start="884" selection-end="884" vertical-scroll-proportion="0.0">
+            <state line="140" column="5" selection-start="4520" selection-end="4520" vertical-scroll-proportion="2.085502">
               <folding>
-                <element signature="e#4554#4564#0" expanded="true" />
-                <element signature="e#5308#5316#0" expanded="true" />
+                <element signature="e#4631#4641#0" expanded="true" />
+                <element signature="e#5385#5393#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -226,8 +225,8 @@
         <option value="$PROJECT_DIR$/src/mazeBig/ServerRummyGame.java" />
         <option value="$PROJECT_DIR$/src/com/MessageParseJunk/TileData.java" />
         <option value="$PROJECT_DIR$/src/com/Server/Player.java" />
-        <option value="$PROJECT_DIR$/src/com/MessageParseJunk/RummyGameGameRoomMessage.java" />
         <option value="$PROJECT_DIR$/src/com/Server/ClientConnector.java" />
+        <option value="$PROJECT_DIR$/src/com/MessageParseJunk/RummyGameGameRoomMessage.java" />
       </list>
     </option>
   </component>
@@ -459,6 +458,24 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <configuration useDefault="false">C:\Users\Dested\AppData\Roaming\Subversion</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b8dd2328-6ba5-4498-987e-3fa63f4dd850" name="Default" comment="" />
@@ -489,22 +506,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1014" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2453271" sideWeight="0.4722222" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.65654206" sideWeight="0.4722222" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2453271" sideWeight="0.52403843" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2453271" sideWeight="0.52403843" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.7546729" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.49786323" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943925" sideWeight="0.4957265" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.7546729" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.7546729" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38995728" sideWeight="0.6705608" order="0" side_tool="false" content_ui="tabs" />
@@ -653,24 +670,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/MessageParseJunk/RummyGameGameRoomMessage.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Server/ClientConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="73" selection-start="884" selection-end="884" vertical-scroll-proportion="0.0">
+        <state line="71" column="85" selection-start="2324" selection-end="2324" vertical-scroll-proportion="-7.32">
           <folding>
-            <element signature="e#4554#4564#0" expanded="true" />
-            <element signature="e#5308#5316#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#2717#2725#0" expanded="true" />
+            <element signature="e#9381#9391#0" expanded="true" />
+            <element signature="e#10005#10013#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Server/ClientConnector.java">
+    <entry file="file://$PROJECT_DIR$/src/com/MessageParseJunk/RummyGameGameRoomMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="60" selection-start="6324" selection-end="6324" vertical-scroll-proportion="0.8867925">
+        <state line="140" column="5" selection-start="4520" selection-end="4520" vertical-scroll-proportion="2.085502">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2717#2725#0" expanded="true" />
-            <element signature="e#9310#9320#0" expanded="true" />
-            <element signature="e#9934#9942#0" expanded="true" />
+            <element signature="e#4631#4641#0" expanded="true" />
+            <element signature="e#5385#5393#0" expanded="true" />
           </folding>
         </state>
       </provider>
